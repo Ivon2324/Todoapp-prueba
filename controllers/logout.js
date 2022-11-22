@@ -8,7 +8,7 @@ logoutRuoter.get('/', async (request, response) => {
   if (!cookies.accessToken) return response.sendStatus(401);
 
   response.clearCookie('accessToken', {
-    secure: false,
+    secure: process.env.NODE_ENV === 'production',
     httpOnly: true,
   });
 

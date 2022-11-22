@@ -7,6 +7,7 @@ const UsersRouter = require('./controllers/users');
 const loginRouter = require('./controllers/login');
 const todosRouter = require('./controllers/todos');
 const logoutRouter = require('./controllers/logout');
+const { MONGO_URI } = require('./config');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const path = require('path');
@@ -14,7 +15,7 @@ const authExtractor = require('./middleware/auth');
 
 (async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI_TEST);
+    await mongoose.connect(MONGO_URI);
     console.log('Conecto a MongoDB');
   } catch (error) {
     console.log('No Conecto a MongoDB');
