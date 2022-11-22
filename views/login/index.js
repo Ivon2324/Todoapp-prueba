@@ -15,6 +15,7 @@ form.addEventListener('submit', async e => {
     );
     window.location.replace(`/app/${credentials.userId}`);
   } catch (error) {
+    console.log(error);
     const p = document.createElement('p');
     p.innerHTML = error.response.data.error;
     p.classList.add('text-rose-300', 'font-bold', 'text-center');
